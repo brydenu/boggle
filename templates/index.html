@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Boggle!</title>
+</head>
+
+<body>
+    <h1>Boggle!</h1>
+    <h2 id="timer">Time remaining: <span id="time-remaining"></span></h2>
+    <div id="answer">
+        <br>
+    </div>
+    <table id="game-board">
+        {% for arr in board %}
+        <tr>
+            {% for char in arr %}
+            <td>{{char}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <form autocomplete="off">
+        <label for="guess">Type any word you see here: </label>
+        <input type="text" name="guess" id="user-input">
+        <button id="btn">Submit</button>
+    </form>
+    <div id="scoreboard">
+        <p>Score: <span id="score"></span></p>
+    </div>
+    <div>
+        <p>High Score: <span id="high-score">{{highscore}}</span></p>
+    </div>
+    <div id="used-words">
+        <h2>Words Guessed:</h2>
+    </div>
+    <hr>
+    <div>
+        <p>Games Played: <span id="games-played">{{times_played}}</span></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>
